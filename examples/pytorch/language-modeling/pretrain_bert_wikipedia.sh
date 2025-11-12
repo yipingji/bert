@@ -28,14 +28,14 @@ GRAD_ACCUM_STEPS=1
 MAX_SEQ_LENGTH=512
 MLM_PROBABILITY=0.15
 LEARNING_RATE=1e-4
-MAX_STEPS=1000000  # Train for 100k steps instead of epochs
+MAX_STEPS=800000  # Train for 100k steps instead of epochs
 # NUM_EPOCHS=40  # Disabled: using max_steps instead
 WARMUP_STEPS=10000
 
 # Logging and saving
 LOGGING_STEPS=500
-SAVE_STEPS=10000
-SAVE_TOTAL_LIMIT=3
+SAVE_STEPS=20000
+SAVE_TOTAL_LIMIT=10
 
 echo "========================================="
 echo "BERT Pretraining from Scratch on Wikipedia"

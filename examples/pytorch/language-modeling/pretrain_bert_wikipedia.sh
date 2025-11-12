@@ -28,7 +28,7 @@ GRAD_ACCUM_STEPS=1
 MAX_SEQ_LENGTH=512
 MLM_PROBABILITY=0.15
 LEARNING_RATE=1e-4
-MAX_STEPS=100000  # Train for 100k steps instead of epochs
+MAX_STEPS=1000000  # Train for 100k steps instead of epochs
 # NUM_EPOCHS=40  # Disabled: using max_steps instead
 WARMUP_STEPS=10000
 
@@ -46,7 +46,7 @@ echo "Tokenizer: $TOKENIZER_NAME"
 echo "Dataset: $DATASET_NAME ($DATASET_CONFIG)"
 echo "Output: $OUTPUT_DIR"
 echo "Learning rate: $LEARNING_RATE"
-echo "Epochs: $NUM_EPOCHS"
+echo "Max training steps: $MAX_STEPS"
 echo "Batch size per device: $PER_DEVICE_BATCH_SIZE"
 echo "Gradient accumulation: $GRAD_ACCUM_STEPS"
 echo "Effective batch size: $((PER_DEVICE_BATCH_SIZE * GRAD_ACCUM_STEPS * NUM_GPUS))"
@@ -64,7 +64,7 @@ torchrun --nproc_per_node=$NUM_GPUS run_mlm.py \
     --per_device_eval_batch_size 1024 \
     --gradient_accumulation_steps $GRAD_ACCUM_STEPS \
     --learning_rate $LEARNING_RATE \
-    --num_train_epochs $NUM_EPOCHS \
+    --max_steps $MAX_STEPS \
     --max_seq_length $MAX_SEQ_LENGTH \
     --mlm_probability $MLM_PROBABILITY \
     --output_dir $OUTPUT_DIR \

@@ -61,7 +61,7 @@ torchrun --nproc_per_node=$NUM_GPUS run_mlm.py \
     --do_train \
     --do_eval \
     --per_device_train_batch_size $PER_DEVICE_BATCH_SIZE \
-    --per_device_eval_batch_size 1024 \
+    --per_device_eval_batch_size 128 \
     --gradient_accumulation_steps $GRAD_ACCUM_STEPS \
     --learning_rate $LEARNING_RATE \
     --max_steps $MAX_STEPS \

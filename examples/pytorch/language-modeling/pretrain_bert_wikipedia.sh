@@ -28,7 +28,8 @@ GRAD_ACCUM_STEPS=1
 MAX_SEQ_LENGTH=512
 MLM_PROBABILITY=0.15
 LEARNING_RATE=1e-4
-NUM_EPOCHS=40
+MAX_STEPS=100000  # Train for 100k steps instead of epochs
+# NUM_EPOCHS=40  # Disabled: using max_steps instead
 WARMUP_STEPS=10000
 
 # Logging and saving
